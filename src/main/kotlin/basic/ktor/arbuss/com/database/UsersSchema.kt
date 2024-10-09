@@ -1,4 +1,4 @@
-package basic.ktor.arbuss.com.plugins
+package basic.ktor.arbuss.com.database
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.serialization.Serializable
@@ -37,6 +37,12 @@ class UserService(database: Database) {
             Users.select { Users.id eq id }
                 .map { ExposedUser(it[Users.name], it[Users.age]) }
                 .singleOrNull()
+        }
+    }
+
+    suspend fun getAll(): List<ExposedUser> {
+        return dbQuery {
+            Users.selectAll().map { ExposedUser(it[Users.name], it[Users.age]) }
         }
     }
 

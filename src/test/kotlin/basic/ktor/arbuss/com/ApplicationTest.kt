@@ -18,4 +18,12 @@ class ApplicationTest {
             assertEquals("Hello World!", bodyAsText())
         }
     }
+
+//    @Test
+//    fun testKC() = testApplication {
+//        client.get("/").apply {
+//            assertEquals(HttpStatusCode.OK, status)
+//            assertEquals("Hello World!", bodyAsText())
+//        }
+//    }
 }
